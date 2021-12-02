@@ -1,0 +1,45 @@
+/*
+ * @Author: Neil.Chen Zifeng 
+ * @Date: 2021-12-02 18:35:10
+ * @Last Modified by: Neil.Chen Zifeng
+ * @Last Modified time: 2021-12-02 18:35:10
+ */
+
+ @startuml 5051 final
+ title 5051 final
+
+ class Record {
+    - id : unsigned int
+    - vehicle_type : unsigned int
+    - start_time : string
+    - start_station : string
+    - finish_time : string
+    - finish_station : string
+    - trip_length : float
+    - is_normal : string
+    - extra_info : string
+    + Record()
+}
+
+class Database {
+    - records : list<Record>
+    + get_record_by_id(unsigned int) : Record
+    + add_record_by_id(unsigned int) : bool
+    + remove_record_by_id(unsigned int) : bool
+}
+
+class DataUtils {
+    + search(string start_time, string end_time, unsigned int vehicle_type): list<Record>
+    + sort(bool order, unsigned int entry_number) : list<Record>
+}
+
+class InterfaceController {
+    + get_content(element)
+    + set_content(element)
+}
+
+class UI {
+    - some_elements
+    - some_infos
+    + update_info(element, info) : bool
+}
