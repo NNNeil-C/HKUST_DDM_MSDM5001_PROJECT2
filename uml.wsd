@@ -21,21 +21,28 @@
     + Record()
 }
 
-class Database {
+class Data {
     - records : list<Record>
     + get_record_by_id(unsigned int) : Record
     + add_record_by_id(unsigned int) : bool
     + remove_record_by_id(unsigned int) : bool
 }
 
-class DataUtils {
-    + search(string start_time, string end_time, unsigned int vehicle_type): list<Record>
-    + sort(bool order, unsigned int entry_number) : list<Record>
+class DataManager {
+    - list_of_data : list<Data>
+}
+
+interface search{
+    + search_on_data(Data, data, string start_time, string end_time, unsigned int vehicle_type): list<Record>
+} 
+
+interface sort {
+    + sort_on_data(Data data, bool order, unsigned int entry_number) : list<Record>
 }
 
 class InterfaceController {
     + get_content(element)
-    + set_content(element)
+    + set_content(element, info)
 }
 
 class UI {
@@ -43,3 +50,9 @@ class UI {
     - some_infos
     + update_info(element, info) : bool
 }
+
+Data "1" *-- "many" Record : has
+InterfaceController -- UI : > updates
+DataManager "1" *-- "many" Data : > has
+DataManager <|.. search
+DataManager <|.. sort
