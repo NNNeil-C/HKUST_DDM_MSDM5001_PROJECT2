@@ -1,7 +1,7 @@
 /*
  * @Author: Zifeng Chen
  * @Date: 2021-12-02 15:45:18
- * @LastEditTime: 2021-12-03 21:34:28
+ * @LastEditTime: 2021-12-03 21:37:58
  * @LastEditors: Zifeng Chan
  * @Description: class diagram for the project
  * @FilePath: /HKUST_DDM_MSDM5001_PROJECT2/class diagram.wsd
@@ -9,7 +9,7 @@
 
 
  @startuml 5051 final
- title 5051 final
+ title 5051 final class diagram
 
  class Record {
     - id : unsigned int
