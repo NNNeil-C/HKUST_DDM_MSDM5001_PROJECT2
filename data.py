@@ -120,4 +120,3 @@ if __name__ == '__main__':
     sample_data.get_count()
     sample_data.get_mean_trip_length()
     
-    
