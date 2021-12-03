@@ -1,0 +1,17 @@
+/*
+ * @Author: Zifeng Chen
+ * @Date: 2021-12-03 21:10:15
+ * @LastEditTime: 2021-12-03 21:33:56
+ * @LastEditors: Zifeng Chan
+ * @Description: sequence diagram for the project
+ * @FilePath: /HKUST_DDM_MSDM5001_PROJECT2/sequence diagram.wsd
+ */
+
+@startuml
+title 5051 final time sequence diagram
+User -> "User Interface": enter enquirey information
+"User Interface" -> "Data Manager" : get enquirey information
+"User Interface" <- "Data Manager" : send enquirey results
+"User Interface" -> User : show enquirey results
+"Data Manager" -> Data : operate enuirey on
+@enduml

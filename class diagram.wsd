@@ -1,0 +1,62 @@
+/*
+ * @Author: Zifeng Chen
+ * @Date: 2021-12-02 15:45:18
+ * @LastEditTime: 2021-12-03 21:34:28
+ * @LastEditors: Zifeng Chan
+ * @Description: class diagram for the project
+ * @FilePath: /HKUST_DDM_MSDM5001_PROJECT2/class diagram.wsd
+ */
+
+
+ @startuml 5051 final
+ title 5051 final
+
+ class Record {
+    - id : unsigned int
+    - vehicle_type : unsigned int
+    - start_time : string
+    - start_station : string
+    - finish_time : string
+    - finish_station : string
+    - trip_length : float
+    - is_normal : string
+    - extra_info : string
+    + Record()
+}
+
+class Data {
+    - records : list<Record>
+    + get_record_by_id(unsigned int) : Record
+    + add_record_by_id(unsigned int) : bool
+    + remove_record_by_id(unsigned int) : bool
+}
+
+class DataManager {
+    - list_of_data : list<Data>
+}
+
+interface search{
+    + search_on_data(Data, data, string start_time, string end_time, unsigned int vehicle_type): list<Record>
+} 
+
+interface sort {
+    + sort_on_data(Data data, bool order, unsigned int entry_number) : list<Record>
+}
+
+class InterfaceController {
+    + get_content(element)
+    + set_content(element, info)
+}
+
+class UI {
+    - some_elements
+    - some_infos
+    + update_info(element, info) : bool
+}
+
+Data "1" *-- "many" Record : has
+InterfaceController -- UI : > updates
+DataManager "1" *-- "many" Data : > has
+DataManager <|.. search
+DataManager <|.. sort
+@enduml
