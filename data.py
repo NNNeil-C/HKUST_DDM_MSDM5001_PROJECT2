@@ -49,7 +49,7 @@ class data:
         sampled_df = self.df.sample(n_row)
         return data(sampled_df)
 
-    def sort(self,entry_number,ascending=True):
+    def sort(self,column_index,ascending=True):
         """
         Sort the data frame by column number and by selected order
     
@@ -59,15 +59,15 @@ class data:
             data class object
         ascending: bool
             if True sort in asending order,else sort in descending order
-        entry_number: int
-            sort the data frame according to the column number
+        column_index: int
+            sort the data frame according to the column index
 
         Returns
         -------
         data
             data class containing the sorted data
         """
-        column_name = self.df.columns[entry_number]
+        column_name = self.df.columns[column_index]
         sorted_df = self.df.sort_values(column_name, axis=0, ascending=ascending).copy()
         return data(sorted_df)
     
@@ -99,8 +99,8 @@ class data:
         
         Returns
         -------
-        mean_trip_length: int
-            mean trip length in km 
+        mean_trip_length: float
+            mean trip length in km with rounded to 2 decimal places
         """        
         mean_trip_length = round(self.df['TripLength'].mean(),2)
         return mean_trip_length
