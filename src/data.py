@@ -11,38 +11,38 @@ class Data:
             1. df.start_time<start_time, 
             2. df.finish_time<endtime, 
             3. df.vehicle_type=vehicle_type
-       
+
         Parameters
         ----------
-        self: data 
+        self: data
             data class object
         start_time: str
             the vehicle must enter highway after the start_time
-        end_time: str 
+        end_time: str
             the vehicle must exit highway before the end_time
-        vehicle_type: int 
+        vehicle_type: int
             integer indicating the type of vehicle
-        
+
         Returns
         -------
         Data: data
             Data class containing the filtered data
         """
         filtered_df = self.df[(self.df['DerectionTime_O'] >= start_time) & (self.df['DerectionTime_D'] <= end_time) & (
-                    self.df['VehicleType'] == vehicle_type)].copy()
+                self.df['VehicleType'] == vehicle_type)].copy()
         return Data(filtered_df)
 
     def show_n(self, n_row):
         """
         Sample n rows from the current dataframe
-        
+
         Parameters
         ----------
-        self: data 
+        self: data
             data class object
         n_row: int
             number of row to sample from the dataframe
-            
+
         Returns
         -------
         Data: data
@@ -54,10 +54,10 @@ class Data:
     def sort(self, column_index, ascending=True):
         """
         Sort the data frame by column number and by selected order
-    
+
         Parameters
         ----------
-        self: data 
+        self: data
             data class object
         ascending: bool
             if True sort in asending order,else sort in descending order
@@ -77,12 +77,12 @@ class Data:
     def get_count(self):
         """
         Get the number of observations in data.df
-        
+
         Parameters
         ----------
         self: data
             data class object
-        
+
         Returns
         -------
         n_row: int
@@ -94,16 +94,16 @@ class Data:
     def get_mean_trip_length(self):
         """
         Get the mean trip_length in data.df
-        
+
         Parameters
         ----------
         self: data
             data class object
-        
+
         Returns
         -------
         mean_trip_length: float
-            mean trip length in km 
+            mean trip length in km
         """
         mean_trip_length = round(self.df['TripLength'].mean(), 2)
         return mean_trip_length
