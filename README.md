@@ -10,6 +10,6 @@
 simple team project
 ## UML
 ### Sequence Diagram
-![Sequence Diagram](https://github.com/NNNeil-C/HKUST_DDM_MSDM5051_PROJECT2/blob/main/MSDM5051%20final%20time%20sequence%20diagram.png)
+![Sequence Diagram](https://github.com/NNNeil-C/HKUST_DDM_MSDM5051_PROJECT2/blob/main/assets/MSDM5051%20final%20time%20sequence%20diagram.png)
 ### Class Diagram
-![Class Diagram](https://github.com/NNNeil-C/HKUST_DDM_MSDM5001_PROJECT2/blob/main/MSDM5051%20final%20class%20diagram.png)
+![Class Diagram](https://github.com/NNNeil-C/HKUST_DDM_MSDM5051_PROJECT2/blob/main/assets/MSDM5051%20final%20class%20diagram.png)
