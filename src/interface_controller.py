@@ -25,7 +25,7 @@ def get_content_sort(elements):
         ascending = True
     else:
         ascending = False
-    number_of_entry_to_show = int(elements[1].get())
     # 5 indicates 'TripLength'
-    column_index = int(elements[2].get()) if len(elements) > 3 else 5
-    return number_of_entry_to_show, column_index, ascending
+    column_index = int(elements[1].get())-1 if len(elements) > 3 else 5
+    number_of_entry_to_show = int(elements[2].get())
+    return ascending, column_index, number_of_entry_to_show
